@@ -11,7 +11,7 @@ def ztable(l,s):
 
   table = '\\begin{tabular}{|' + (numcols*'c|') + '}\n' + \
           '\\hline\n' + \
-          'Trial & ' + s + '\n' + \
+          'Trial & ' + s + '\\\n' + \
           '\\hline\n' + \
           ''.join(body) + \
           '\\hline\n' + \
@@ -19,7 +19,7 @@ def ztable(l,s):
   return table
 
 def ztable_list(ls,s):
-    return ztable([' & '.join(l) for l in ls],' & '.join(s))
+    return ztable([' & '.join(map(str,l)) for l in ls],' & '.join(s))
 
 def mean(l):
   return (1.0*sum(l))/len(l)
